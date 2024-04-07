@@ -17,7 +17,7 @@ public class ApiResponseException : Exception
 
     public void SetDetail(ResponseCodes code)
     {
-        _responseObject = _responseGenerator.GetResponseModel<object>(code, null);
+        _responseObject = _responseGenerator.GetResponseModel<object>(code, new { });
     }
     public void SetDetail<TModel>(ResponseCodes code, TModel Data)
     {

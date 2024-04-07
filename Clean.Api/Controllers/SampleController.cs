@@ -1,5 +1,6 @@
 ﻿using Clean.Application.Common;
 using Clean.Application.Features.Sample.Commands.FirstService;
+using Clean.Application.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,9 @@ namespace Clean.Api.Controllers
 
         [Route("/FirstService")]
         [HttpPost]
+        [ProducesResponseType(typeof(ApiResponseModel<string>),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponseModel<>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponseModel<>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> FirstService(FirstServiceCommand command)
         {
             var resultData = await _mediator.Send(command);
