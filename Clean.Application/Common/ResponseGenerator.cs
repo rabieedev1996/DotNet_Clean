@@ -133,6 +133,7 @@ public class ResponseGenerator
                 {
                     case ResponseCodes.SUCCESS: _statusCode=(int) HttpStatusCode.OK; break;
                     case ResponseCodes.EXCEPTION: _statusCode = (int)HttpStatusCode.InternalServerError; break;
+                    case ResponseCodes.VALIDATION_ERROR: _statusCode = (int)HttpStatusCode.BadRequest; break;
                 }
                 return this;
             }
