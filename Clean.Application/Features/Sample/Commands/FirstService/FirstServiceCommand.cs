@@ -10,5 +10,6 @@ namespace Clean.Application.Features.Sample.Commands.FirstService
     {
         public int Param1 { set; get; }
         public string RequiredParam { set; get; }
+        public bool CreateError { set; get; }
     }
 }
