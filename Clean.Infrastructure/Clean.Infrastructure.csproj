@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+
+	<Reference Include="Aspose.Imaging">
+	  <HintPath>..\DLL\Aspose.Imaging.dll</HintPath>
+	</Reference>
+
+
+
+	<Reference Include="Stimulsoft.Base">
+	  <HintPath>..\DLL\Stimul\Stimulsoft.Base.dll</HintPath>
+	</Reference>
+
+	<Reference Include="Stimulsoft.Report">
+	  <HintPath>..\DLL\Stimul\Stimulsoft.Report.dll</HintPath>
+	</Reference>
+
+	<Reference Include="Stimulsoft.Report.Mvc.NetCore">
+	  <HintPath>..\DLL\Stimul\Stimulsoft.Report.Mvc.NetCore.dll</HintPath>
+	</Reference>
+
+	<Reference Include="Stimulsoft.Report.Web">
+	  <HintPath>..\DLL\Stimul\Stimulsoft.Report.Web.dll</HintPath>
+	</Reference>
+
+	<Reference Include="Stimulsoft.Report.WebDesign">
+	  <HintPath>..\DLL\Stimul\Stimulsoft.Report.WebDesign.dll</HintPath>
+	</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.151" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+		<PackageReference Include="Npgsql" Version="7.0.4" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+		<PackageReference Include="AWSSDK.S3" Version="3.7.104.15" />
+		<PackageReference Include="MimeTypesMap" Version="1.0.8" />
+		<PackageReference Include="MongoDB.Driver" Version="2.19.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.19.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="RestSharp" Version="110.2.1-alpha.0.1" />
+		
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Clean.Application\Clean.Application.csproj" />
+	  <ProjectReference Include="..\IPLA.Utility\Clean.Utility.csproj" />
+	</ItemGroup>
+</Project>
