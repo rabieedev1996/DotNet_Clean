@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Domain", "Clean.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Infrastructure", "Clean.Infrastructure\Clean.Infrastructure.csproj", "{392D7E6F-BCCA-40AC-ADAA-E5399D32BFB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.AdminPanel", "Clean.AdminPanel\Clean.AdminPanel.csproj", "{041883B6-36B5-440E-9FF8-F3CA349EB38C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Utility", "IPLA.Utility\Clean.Utility.csproj", "{BAAD00F4-E466-47C7-AC42-BC62778A517D}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{392D7E6F-BCCA-40AC-ADAA-E5399D32BFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{392D7E6F-BCCA-40AC-ADAA-E5399D32BFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{392D7E6F-BCCA-40AC-ADAA-E5399D32BFB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{041883B6-36B5-440E-9FF8-F3CA349EB38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{041883B6-36B5-440E-9FF8-F3CA349EB38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{041883B6-36B5-440E-9FF8-F3CA349EB38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{041883B6-36B5-440E-9FF8-F3CA349EB38C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BAAD00F4-E466-47C7-AC42-BC62778A517D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAAD00F4-E466-47C7-AC42-BC62778A517D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAAD00F4-E466-47C7-AC42-BC62778A517D}.Release|Any CPU.ActiveCfg = Release|Any CPU

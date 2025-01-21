@@ -1,3 +1,4 @@
+using Clean.Domain;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -7,9 +8,9 @@ public class MailzilaService:IMailzilaService
 {
     private string _mailZilaApiKey;
 
-    public MailzilaService()
+    public MailzilaService(Configs configs)
     {
-        _mailZilaApiKey = "*****";
+        _mailZilaApiKey = configs.MailZilaToken;
     }
     public MailzilaResponse MailZilaSendMail(string from, List<string> to, string templateId, string subject = "", List<KeyValuePair<string, string>> Values = null, bool isTransactional = true)
     {

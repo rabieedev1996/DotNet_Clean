@@ -1,6 +1,7 @@
 using System.IO.Compression;
 using Aspose.Imaging;
 using Clean.Application.Contract.Services;
+using Clean.Domain;
 using Clean.Domain.Enums;
 using Clean.Infrastructure.ServiceImpls.FileHelperImpl;
 using SeekOrigin = System.IO.SeekOrigin;
@@ -9,7 +10,7 @@ namespace Clean.Infrastructure.Service;
 
 public class ImageService : FileService,IImageService
 {
-    public ImageService(OSTYPE os) : base(os)
+    public ImageService(Configs configs) : base(configs)
     {
         License imagingLicense = new License();
         using (var licenseStream = new FileStream(OSPathAdapter(Environment.CurrentDirectory + "/aspose.lic"),

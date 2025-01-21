@@ -3,6 +3,7 @@ using Amazon.S3;
 using Amazon.S3.Transfer;
 using HeyRed.Mime;
 using Clean.Application.Contract.Services;
+using Clean.Domain;
 using Clean.Domain.Enums;
 
 namespace Clean.Infrastructure.Service;
@@ -22,9 +23,13 @@ public class FileService : IFileService
     private string _amazonBucketName = "****";
     private string _amazonEndPoint = "****";
 
-    public FileService(OSTYPE os)
+    public FileService(Configs configs)
     {
-        _os = os;
+        _os = configs.OSTYPE;
+        _amazonBucketName = configs.AmazonStorageConfigs.AmazonBucketName;
+        _amazonEndPoint = configs.AmazonStorageConfigs.AmazonEndPoint;
+        _amazonAccessKey = configs.AmazonStorageConfigs.AmazonAccessKey;
+        _amazonSecretKey = configs.AmazonStorageConfigs.AmazonSecretKey;
     }
 
     public void LoadFileFromStorage(string path)

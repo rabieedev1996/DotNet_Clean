@@ -1,3 +1,4 @@
+using Clean.Domain;
 using Clean.Infrastructure.ServiceImpls.SmsImpl;
 using Newtonsoft.Json;
 using RestSharp;
@@ -10,7 +11,14 @@ public class FarazSmsService : ISmsImpl
     private string Sender = "****";
     private string Token = "****";
     private string TemplateId = "****";
-    
+
+    public FarazSmsService(Configs configs)
+    {
+        BaseUrl=configs.SMSConfigs.FarazSmsConfigs.BaseUrl;
+        Sender = configs.SMSConfigs.FarazSmsConfigs.Sender;
+        Token = configs.SMSConfigs.FarazSmsConfigs.Token;
+        TemplateId = configs.SMSConfigs.FarazSmsConfigs.TemplateId;
+    }
     public async Task Send(List<string> dest, string message)
     {
         var client = new RestClient();

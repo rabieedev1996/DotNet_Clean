@@ -15,10 +15,10 @@ public class BaseRepository<TDocument> : IBaseRepository<TDocument> where TDocum
 {
     protected readonly IMongoCollection<TDocument> _collection;
 
-    public BaseRepository(IConfiguration configuration)
+    public BaseRepository(Configs configs)
     {
-        var client = new MongoClient(configuration.GetConnectionString("CleanMongoDB"));
-        var database = client.GetDatabase("IPLA");
+        var client = new MongoClient(configs.MongoConfigs.ConnectionString);
+        var database = client.GetDatabase(configs.MongoConfigs.Database);
        _collection = database.GetCollection<TDocument>(GetCollectionName(typeof(TDocument)));
 
     }

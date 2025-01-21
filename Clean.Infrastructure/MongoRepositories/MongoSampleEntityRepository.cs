@@ -1,4 +1,5 @@
 using Clean.Application.Contract.MongoDB;
+using Clean.Domain;
 using Clean.Domain.Entities.Mongo;
 using Clean.Infrastructure.Persistence;
 using Microsoft.Extensions.Configuration;
@@ -8,7 +9,7 @@ namespace Clean.Infrastructure.MongoRepositories;
 
 public class MongoSampleEntityRepository : BaseRepository<MongoSampleEntity>, IMongoSampleEntityRepository
 {
-    public MongoSampleEntityRepository(IConfiguration configuration) : base(configuration)
+    public MongoSampleEntityRepository(Configs configuration) : base(configuration)
     {
     }
   

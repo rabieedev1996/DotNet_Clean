@@ -1,4 +1,5 @@
 using Clean.Application.Contract.Services;
+using Clean.Domain;
 using Clean.Infrastructure.ServiceImpls.SmsImpl.Mailzila;
 using Clean.Infrastructure.ServiceImpls.SmsImpl.SMTP;
 
@@ -9,10 +10,10 @@ public class EmailService : IEmailService
     private ISMTPService _smtpService;
     private IMailzilaService _mailzilaService;
 
-    public EmailService()
+    public EmailService(Configs config)
     {
-        _smtpService = new SMTPService();
-        _mailzilaService = new MailzilaService();
+        _smtpService = new SMTPService(config);
+        _mailzilaService = new MailzilaService(config);
     }
 
     public async Task SendCode(string destination, string code)

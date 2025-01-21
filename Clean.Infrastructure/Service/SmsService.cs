@@ -1,4 +1,5 @@
 using Clean.Application.Contract.Services;
+using Clean.Domain;
 using Clean.Infrastructure.ServiceImpls.SmsImpl;
 using Clean.Infrastructure.ServiceImpls.SMSImpl.FarazSMS;
 
@@ -8,12 +9,10 @@ public class SmsService : ISmsService
 {
     private ISmsImpl _provider;
 
-    public SmsService()
+    public SmsService(Configs configs)
     {
-        _provider = new FarazSmsService();
+        _provider = new FarazSmsService(configs);
     }
-
-
     public async Task Send(string dest, string text)
     {
         await _provider.Send(new List<string> { dest }, text);

@@ -3,6 +3,7 @@ using Clean.Application;
 using Clean.Application.Common;
 using Clean.Application.Contract.Services;
 using Clean.Application.Contract.SQLDB;
+using Clean.Domain;
 using Clean.Domain.Enums;
 using Clean.Infrastructure.Persistence;
 using Clean.Infrastructure.Service;
@@ -16,7 +17,7 @@ namespace Clean.Infrastructure;
 public static class InfrastructureServiceRegistration
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
-        ConfigurationManager configurationManager)
+        ConfigurationManager configurationManager,Configs configs)
     {
         //PostgreSql
        /* services.AddEntityFrameworkNpgsql().AddDbContext<CleanContext>(opt =>
@@ -30,9 +31,8 @@ public static class InfrastructureServiceRegistration
         services.AddScoped(typeof(IReportService), typeof(ReportService));
         services.AddScoped(typeof(ILogService), typeof(LogService));
         services.AddScoped(typeof(ISqlSampleEntityRepository), typeof(SqlSampleEntityRepository));
-        var osType = (OSTYPE)Enum.Parse(typeof(OSTYPE), configurationManager.GetSection("OSType").Value);
-        services.AddTransient<IFileService>(s => new FileService(osType));
-        services.AddTransient<IImageService>(s => new ImageService(osType));
+        services.AddTransient<IFileService>(s => new FileService(configs));
+        services.AddTransient<IImageService>(s => new ImageService(configs));
         services.AddScoped(typeof(UserContext));
         services.AddScoped(typeof(DapperContext));
         services.AddScoped(typeof(ResponseGenerator));

@@ -1,6 +1,7 @@
 ﻿using Clean.Application.Common;
 using Clean.Application.Features.Sample.Commands.FirstService;
 using Clean.Application.Models;
+using Clean.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

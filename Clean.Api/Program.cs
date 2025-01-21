@@ -8,17 +8,25 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Clean.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//In the Debug environment, for security reasons, set these configs in the Secret Storage.
+//In the Release environment, for security reasons, set these configs in the Environment Variables.
+builder.Configuration.AddJsonFile("SampleConfigs.json", optional: true, reloadOnChange: true);
+
+bool isDevelopment = builder.Environment.IsDevelopment();
+
+var configs = Configuration.ConfigureConfigs(builder.Configuration, isDevelopment);
+builder.Services.AddSingleton(configs);
+
 builder.Services.AddControllers(o =>
 {
     o.Filters.Add(typeof(HttpResponseExceptionFilter));
     o.Filters.Add(typeof(FillUserContextFilter));
     o.Filters.Add(typeof(LoggingFilter));
 });
-builder.Services.Configure<ApiBehaviorOptions>(options =>
-{
-    options.SuppressModelStateInvalidFilter = true;
-});
+builder.Services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
 builder.Services.AddMvc(setupAction => { }).AddJsonOptions(jsonOptions =>
 {
     jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -29,7 +37,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureServices(builder.Configuration, configs);
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

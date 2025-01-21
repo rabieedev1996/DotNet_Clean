@@ -1,3 +1,4 @@
+using Clean.Domain;
 using Clean.Infrastructure.ServiceImpls.SmsImpl;
 using RestSharp;
 
@@ -5,12 +6,21 @@ namespace Clean.Infrastructure.ServiceImpls.SMSImpl.SMSIR;
 
 public class SmsIrService : ISmsImpl
 {
-    private string Token = "****";
-    private string BaseUrl = "https://api.sms.ir/v1/send";
-    private long TemplateId = 100000;
-    private string Sender = "30007732003736";
-    private string PositionVariable = "code";
-    
+    private string Token;
+    private string BaseUrl;
+    private long TemplateId;
+    private string Sender;
+    private string PositionVariable;
+
+    public SmsIrService(Configs configs)
+    {
+        Token = configs.SMSConfigs.SMSIRConfigs.Token;
+        BaseUrl = configs.SMSConfigs.SMSIRConfigs.BaseUrl;
+        TemplateId = configs.SMSConfigs.SMSIRConfigs.TemplateId;
+        Sender = configs.SMSConfigs.SMSIRConfigs.Sender;
+        PositionVariable = configs.SMSConfigs.SMSIRConfigs.PositionVariable;
+    }
+
     public async Task Send(List<string> dest, string message)
     {
         var client = new RestClient();
@@ -29,7 +39,6 @@ public class SmsIrService : ISmsImpl
 
     public async Task SendCode(string dest, string code)
     {
-     
         var client = new RestClient();
         var request = new RestRequest($"{BaseUrl}/verify", Method.Post);
         request.AddHeader("Content-Type", "application/json");
