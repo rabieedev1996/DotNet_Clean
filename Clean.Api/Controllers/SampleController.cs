@@ -20,15 +20,19 @@ namespace Clean.Api.Controllers
             _rsponseGenerator = rsponseGenerator;
         }
 
-        [Route("/FirstService")]
-        [HttpPost]
+        [HttpPost("/FirstService")]
         [ProducesResponseType(typeof(ApiResponseModel<string>),StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponseModel<>), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiResponseModel<>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> FirstService(FirstServiceCommand command)
         {
             var resultData = await _mediator.Send(command);
             var resultObj = _rsponseGenerator.GetResponseModel(Domain.Enums.ResponseCodes.SUCCESS, resultData);
+            return resultObj;
+        }
+        [HttpGet("/SecondService")]
+        [ProducesResponseType(typeof(ApiResponseModel<string>), StatusCodes.Status200OK)]
+        public IActionResult SecondService()
+        {
+            var resultObj = _rsponseGenerator.GetResponseModel(Domain.Enums.ResponseCodes.SUCCESS, "Hi");
             return resultObj;
         }
     }

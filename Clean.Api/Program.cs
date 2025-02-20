@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Clean.Infrastructure;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ bool isDevelopment = builder.Environment.IsDevelopment();
 var configs = Configuration.ConfigureConfigs(builder.Configuration, isDevelopment);
 builder.Services.AddSingleton(configs);
 
+
 builder.Services.AddControllers(o =>
 {
     o.Filters.Add(typeof(HttpResponseExceptionFilter));
@@ -31,14 +33,9 @@ builder.Services.AddMvc(setupAction => { }).AddJsonOptions(jsonOptions =>
 {
     jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
-// Add services to the container.
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration, configs);
-
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(x =>
@@ -59,19 +56,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
         options => builder.Configuration.Bind("CookieSettings", options));
 
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapScalarApiReference();
+    app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+
 
 app.Run();
