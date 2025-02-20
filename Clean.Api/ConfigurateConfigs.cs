@@ -18,7 +18,6 @@ public class Configuration
         else
         {
             // خواندن تنظیمات از Environment Variables
-            configs.JwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
             configs.SQlConfigs = new SQlConfigs
             {
                 ConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
@@ -59,6 +58,13 @@ public class Configuration
                 AmazonSecretKey = Environment.GetEnvironmentVariable("AMAZON_SECRET_KEY"),
                 AmazonBucketName = Environment.GetEnvironmentVariable("AMAZON_BUCKET_NAME"),
                 AmazonEndPoint = Environment.GetEnvironmentVariable("AMAZON_END_POINT")
+            };
+            configs.TokenConfigs = new TokenConfigs
+            {
+                Key = Environment.GetEnvironmentVariable("TOKEN_KEY"),
+                Issuer = Environment.GetEnvironmentVariable("TOKEN_ISSUER"),
+                Audience = Environment.GetEnvironmentVariable("TOKEN_AUDIENCE"),
+                SecurityAlghorithm = Environment.GetEnvironmentVariable("TOKEN_SECURITY_ALGORITHM")
             };
             configs.MailZilaToken = Environment.GetEnvironmentVariable("MAIL_ZILA_TOKEN");
             configs.OSTYPE = Enum.TryParse(Environment.GetEnvironmentVariable("OSTYPE"), out OSTYPE osType)

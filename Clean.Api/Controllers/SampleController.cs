@@ -1,10 +1,15 @@
 ﻿using Clean.Application.Common;
 using Clean.Application.Features.Sample.Commands.FirstService;
+using Clean.Application.Features.Sample.Commands.GenerateSampleToken;
+using Clean.Application.Features.Sample.Commands.ValidateToken;
 using Clean.Application.Models;
 using Clean.Domain;
+using Clean.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using YasgapNew.Api.Filters;
 
 namespace Clean.Api.Controllers
 {
@@ -20,20 +25,24 @@ namespace Clean.Api.Controllers
             _rsponseGenerator = rsponseGenerator;
         }
 
-        [HttpPost("/FirstService")]
+        [HttpPost("/GenerateToken")]
         [ProducesResponseType(typeof(ApiResponseModel<string>),StatusCodes.Status200OK)]
-        public async Task<IActionResult> FirstService(FirstServiceCommand command)
+        public async Task<IActionResult> GenerateToken()
         {
-            var resultData = await _mediator.Send(command);
+            var resultData = await _mediator.Send(new GenerateSampleTokenInput { });
             var resultObj = _rsponseGenerator.GetResponseModel(Domain.Enums.ResponseCodes.SUCCESS, resultData);
             return resultObj;
         }
-        [HttpGet("/SecondService")]
-        [ProducesResponseType(typeof(ApiResponseModel<string>), StatusCodes.Status200OK)]
-        public IActionResult SecondService()
+        [HttpPost("/ValidateToken")]
+        [ProducesResponseType(typeof(ApiResponseModel<ValidateTokenVm>), StatusCodes.Status200OK)]
+        [CustomAuthorize(IdentityRoles.USER,IdentityReason.ON_REGISTER)]
+        public async Task<IActionResult> ValidateToken()
         {
-            var resultObj = _rsponseGenerator.GetResponseModel(Domain.Enums.ResponseCodes.SUCCESS, "Hi");
+            var resultData = await _mediator.Send(new ValidateTokenInput { });
+            var resultObj = _rsponseGenerator.GetResponseModel(Domain.Enums.ResponseCodes.SUCCESS, resultData);
             return resultObj;
         }
+
+
     }
 }

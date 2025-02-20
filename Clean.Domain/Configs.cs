@@ -4,7 +4,6 @@ namespace Clean.Domain;
 
 public class Configs
 {
-    public string JwtSecretKey { get; set; }
 
     public SQlConfigs SQlConfigs { get; set; }
     public MongoConfigs MongoConfigs { get; set; }
@@ -13,6 +12,7 @@ public class Configs
     public AmazonStorageConfigs AmazonStorageConfigs { get; set; }
     public string MailZilaToken { get; set; }
     public OSTYPE OSTYPE { get; set; }
+    public TokenConfigs TokenConfigs { get; set; }
 }
 
 public class SQlConfigs
@@ -63,4 +63,11 @@ public class AmazonStorageConfigs
     public string AmazonSecretKey { set; get; }
     public string AmazonBucketName { set; get; }
     public string AmazonEndPoint { set; get; }
+}
+public class TokenConfigs
+{
+    public string Key { set; get; }
+    public string Issuer { set; get; }
+    public string Audience { set; get; }
+    public string SecurityAlghorithm { set; get; }
 }

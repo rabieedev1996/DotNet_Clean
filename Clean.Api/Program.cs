@@ -9,12 +9,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Clean.Infrastructure;
 using Scalar.AspNetCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //In the Debug environment, for security reasons, set these configs in the Secret Storage.
 //In the Release environment, for security reasons, set these configs in the Environment Variables.
-builder.Configuration.AddJsonFile("SampleConfigs.json", optional: true, reloadOnChange: true);
+//builder.Configuration.AddJsonFile("SampleConfigs.json", optional: true, reloadOnChange: true);
 
 bool isDevelopment = builder.Environment.IsDevelopment();
 
@@ -57,6 +58,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options => builder.Configuration.Bind("CookieSettings", options));
 
 builder.Services.AddOpenApi();
+
 
 var app = builder.Build();
 app.MapControllers();

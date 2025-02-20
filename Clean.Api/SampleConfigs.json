@@ -1,41 +1,46 @@
 {
-  "Configs": {
-    "JwtSecretKey": "test_jwt_secret_key",
-    "SQlConfigs": {
-      "ConnectionString": "Server=localhost;Database=TestDB;User Id=sa;Password=Test@123;"
-    },
-    "MongoConfigs": {
-      "ConnectionString": "mongodb://localhost:27017",
-      "Database": "TestMongoDB"
-    },
-    "SMSConfigs": {
-      "FarazSmsConfigs": {
-        "BaseUrl": "https://farazsms.example.com",
-        "Sender": "TestSender",
-        "Token": "test_farazsms_token",
-        "TemplateId": "test_template_id"
-      },
-      "SMSIRConfigs": {
-        "Token": "test_smsir_token",
-        "BaseUrl": "https://smsir.example.com",
-        "TemplateId": 123456789,
-        "Sender": "TestSender",
-        "PositionVariable": "PositionTest"
-      }
-    },
-    "MailSMTPConfigs": {
-      "MailAddress": "test@example.com",
-      "Password": "TestPassword123",
-      "Host": "smtp.example.com",
-      "Port": 587
-    },
-    "AmazonStorageConfigs": {
-      "AmazonAccessKey": "test_amazon_access_key",
-      "AmazonSecretKey": "test_amazon_secret_key",
-      "AmazonBucketName": "test_bucket_name",
-      "AmazonEndPoint": "https://s3.amazonaws.com"
-    },
-    "MailZilaToken": "test_mailzila_token",
-    "OSTYPE": "Linux"
-  }
+    "Configs": {
+        "SQlConfigs": {
+            "ConnectionString": "Server=localhost;Database=TestDB;User Id=sa;Password=Test@123;"
+        },
+        "MongoConfigs": {
+            "ConnectionString": "mongodb://localhost:27017",
+            "Database": "TestMongoDB"
+        },
+        "SMSConfigs": {
+            "FarazSmsConfigs": {
+                "BaseUrl": "https://farazsms.example.com",
+                "Sender": "TestSender",
+                "Token": "test_farazsms_token",
+                "TemplateId": "test_template_id"
+            },
+            "SMSIRConfigs": {
+                "Token": "test_smsir_token",
+                "BaseUrl": "https://smsir.example.com",
+                "TemplateId": 123456789,
+                "Sender": "TestSender",
+                "PositionVariable": "PositionTest"
+            }
+        },
+        "MailSMTPConfigs": {
+            "MailAddress": "test@example.com",
+            "Password": "TestPassword123",
+            "Host": "smtp.example.com",
+            "Port": 587
+        },
+        "AmazonStorageConfigs": {
+            "AmazonAccessKey": "test_amazon_access_key",
+            "AmazonSecretKey": "test_amazon_secret_key",
+            "AmazonBucketName": "test_bucket_name",
+            "AmazonEndPoint": "https://s3.amazonaws.com"
+        },
+        "TokenConfigs": {
+            "Key": "",
+            "SecurityAlghorithm": "",
+            "Issuer": "",
+            "Audience": ""
+        },
+        "MailZilaToken": "test_mailzila_token",
+        "OSTYPE": "Linux"
+    }
 }

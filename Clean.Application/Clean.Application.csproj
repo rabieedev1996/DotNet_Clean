@@ -13,6 +13,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clean.Domain\Clean.Domain.csproj" />
+    <ProjectReference Include="..\Clean.Identity\Clean.Identity.csproj" />
     <ProjectReference Include="..\IPLA.Utility\Clean.Utility.csproj" />
   </ItemGroup>
   <ItemGroup>
