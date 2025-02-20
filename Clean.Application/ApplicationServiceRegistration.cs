@@ -3,7 +3,7 @@ using AutoMapper;
 using Clean.Application.Behaviours;
 using Clean.Application.Common;
 using Clean.Application.ExceptionHandler;
-using Clean.Application.Features.Sample.Commands.FirstService;
+using Clean.Application.Features.Sample.SampleService;
 using Clean.Application.Mapping;
 using FluentValidation;
 using MediatR;
@@ -19,7 +19,7 @@ public static class ApplicationServiceRegistration
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddScoped(typeof(Logging));
-        services.AddValidatorsFromAssemblyContaining<FirstServiceCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<SampleServiceValidator>();
         services.AddScoped<ApiResponseException>();
         services.AddScoped(provider =>
           new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); }).CreateMapper());

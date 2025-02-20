@@ -1,7 +1,7 @@
 ﻿using Clean.Application.Common;
-using Clean.Application.Features.Sample.Commands.FirstService;
 using Clean.Application.Features.Sample.Commands.GenerateSampleToken;
 using Clean.Application.Features.Sample.Commands.ValidateToken;
+using Clean.Application.Features.Sample.SampleService;
 using Clean.Application.Models;
 using Clean.Domain;
 using Clean.Domain.Enums;
@@ -24,7 +24,14 @@ namespace Clean.Api.Controllers
             _mediator = mediator;
             _rsponseGenerator = rsponseGenerator;
         }
-
+        [HttpPost("/SampleService")]
+        [ProducesResponseType(typeof(ApiResponseModel<string>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> SampleService(SampleServiceInput input)
+        {
+            var resultData = await _mediator.Send(input);
+            var resultObj = _rsponseGenerator.GetResponseModel(Domain.Enums.ResponseCodes.SUCCESS, resultData);
+            return resultObj;
+        }
         [HttpPost("/GenerateToken")]
         [ProducesResponseType(typeof(ApiResponseModel<string>),StatusCodes.Status200OK)]
         public async Task<IActionResult> GenerateToken()

@@ -1,0 +1,1 @@
+the Utility layer contains some general structs and functions that can be used in any type of project. In other words, these functions are general and not dependent on the business logic of this project.

@@ -17,8 +17,9 @@ The project structure is based on Clean Architecture and follows the hierarchy s
 <b>How to Run the Project<b>
 1) Clone the project.
 2) Add build configurations and set the environment variables.
-3) Run the project and navigate to the following URL: "http://localhost:{port}/swagger/index.html".
+3) Run the project and navigate to the following URL: "http://localhost:{port}/scalar".
 
+<b>To run the project, you can add the SampleConfigs.json file to the project configurations via Program.cs or use SecretStorage.</b>
 
 # Support
 

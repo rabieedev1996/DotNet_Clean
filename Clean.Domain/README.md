@@ -1,0 +1,1 @@
+The Domain layer contains database entities and DTOs that are used across multiple layers.
