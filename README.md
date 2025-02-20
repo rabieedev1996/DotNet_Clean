@@ -12,7 +12,7 @@ This project is a template with a Clean Architecture, written in the C# programm
 </ul>
 The project structure is based on Clean Architecture and follows the hierarchy shown below. <br><br>
 
-<img width="200" src="https://rabieestage.s3.ir-thr-at1.arvanstorage.ir/c%23Tree.png">
+<img width="200" src="http://45.149.77.10:9000/test/DotnetClean.png">
 
 <b>How to Run the Project<b>
 1) Clone the project.
