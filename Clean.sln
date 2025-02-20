@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Domain", "Clean.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Infrastructure", "Clean.Infrastructure\Clean.Infrastructure.csproj", "{392D7E6F-BCCA-40AC-ADAA-E5399D32BFB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Utility", "IPLA.Utility\Clean.Utility.csproj", "{BAAD00F4-E466-47C7-AC42-BC62778A517D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Utility", "Clean.Utility\Clean.Utility.csproj", "{BAAD00F4-E466-47C7-AC42-BC62778A517D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Identity", "Clean.Identity\Clean.Identity.csproj", "{386904F8-330C-4F2F-AE7A-D57A7C95C45A}"
 EndProject

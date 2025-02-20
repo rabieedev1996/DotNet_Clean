@@ -63,6 +63,5 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Clean.Application\Clean.Application.csproj" />
-	  <ProjectReference Include="..\IPLA.Utility\Clean.Utility.csproj" />
 	</ItemGroup>
 </Project>

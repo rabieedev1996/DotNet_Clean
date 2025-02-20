@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IPLA.Utility\Clean.Utility.csproj" />
+    <ProjectReference Include="..\Clean.Utility\Clean.Utility.csproj" />
   </ItemGroup>
 
 </Project>
