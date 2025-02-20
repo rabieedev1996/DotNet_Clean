@@ -22,6 +22,13 @@ The project structure is based on Clean Architecture and follows the hierarchy s
 <b>To run the project, you can add the SampleConfigs.json file to the project configurations via Program.cs or use SecretStorage.</b>
 
 <b>Request Flow</b>
+
+RESTful requests follow the flow below from the moment they are sent until a response is received.
+
+Note that the FillUserContext filter is responsible for extracting information from the token and populating the UserContext object, which is injected into other layers and classes of the project using Dependency Injection.
+
+This allows access to user information throughout the entire project.
+
 <img src="http://45.149.77.10:9000/test/RequestFlow.png">
 
 
