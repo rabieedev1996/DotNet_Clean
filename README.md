@@ -21,6 +21,10 @@ The project structure is based on Clean Architecture and follows the hierarchy s
 
 <b>To run the project, you can add the SampleConfigs.json file to the project configurations via Program.cs or use SecretStorage.</b>
 
+<b>Request Flow</b>
+<img width="200" src="http://45.149.77.10:9000/test/RequestFlow.png">
+
+
 # Support
 
 I am available to answer your questions about this project.
